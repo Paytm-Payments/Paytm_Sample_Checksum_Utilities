@@ -17,7 +17,7 @@ function paramsToString(params, mandatoryflag) {
     value = params[key];
 
     if (value.indexOf("REFUND") > -1 || value.indexOf("|") > -1) {
-      continue;
+	return;
     }
     
     if (key !== 'CHECKSUMHASH' ) {
