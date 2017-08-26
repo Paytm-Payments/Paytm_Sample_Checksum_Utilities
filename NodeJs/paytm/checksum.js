@@ -15,9 +15,9 @@ function paramsToString(params, mandatoryflag) {
   if (!flag) tempKeys.sort();
   tempKeys.forEach(function (key) {
     value = params[key];
-
     if (value.indexOf("REFUND") > -1 || value.indexOf("|") > -1) {
-      continue;
+      delete value.indexOf("REFUND");
+      delete value.indexOf("|");
     }
     
     if (key !== 'CHECKSUMHASH' ) {
