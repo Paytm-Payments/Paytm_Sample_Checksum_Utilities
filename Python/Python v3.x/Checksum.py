@@ -83,8 +83,9 @@ def __encode__(to_encode, iv, key):
     # Pad
     to_encode = __pad__(to_encode)
     # Encrypt
-    c = AES.new(key, AES.MODE_CBC, iv)
-    to_encode = c.encrypt(to_encode)
+    c = AES.new(key.encode("utf8"), AES.MODE_CBC, iv.encode("utf8"))
+    #key_as_bytearray.decode("utf8")
+    to_encode = c.encrypt(to_encode.encode("utf8"))
     # Encode
     to_encode = base64.b64encode(to_encode)
     return to_encode.decode("UTF-8")
